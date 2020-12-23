@@ -5,9 +5,10 @@
 # Apache 2.0
 # script to generate reverberated data
 
-import argparse, shlex, glob, math, os, random, sys, warnings, copy, imp, ast
+import argparse, shlex, glob, math, os, random, sys, warnings, copy, ast
+from importlib.machinery import SourceFileLoader
 
-data_lib = imp.load_source('dml', 'steps/data/data_dir_manipulation_lib.py')
+data_lib = SourceFileLoader('dml', 'steps/data/data_dir_manipulation_lib.py').load_module()
 
 def get_args():
     # we add required arguments as named arguments for readability
